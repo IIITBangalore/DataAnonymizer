@@ -1,0 +1,717 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Data Anonymizer </title>
+    <meta name="description" content="Data Anonymizer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+	    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="assets/js/dashboard.js"></script>
+   <!--  <script src="assets/js/widgets.js"></script>--> 
+    
+
+   
+    
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+<style>
+.hide_file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 1%;
+    font-size: 4px;
+    width: 0%;
+   }
+   .slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+
+        <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" ><img src="images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="images/images.png" alt="Logo"></a>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                    </li>
+                    
+                  	<li class="menu-item-has-children dropdown">
+                        <a href="tool.html" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bars"></i>Tool</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-folder"></i><a href="sources.html">Data Sources</a></li>
+                            <li><i class="menu-icon fa fa-wrench"></i><a href="configs.html">Configutations</a></li>
+							<li><i class="menu-icon fa fa-users"></i><a href="Anonymizer.html">Anonymizer</a></li>
+							
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Statistics</a>
+                    </li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                        
+
+                        
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/admin.png" alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications </a>
+
+                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+
+
+        <div class="content mt-3">
+        	
+            
+         <div class="col-sm-6 col-lg-3" id="datasource">
+                <div class="card text-dark bg-flat-color-1">
+                    <div class="card">
+
+
+                      <!--/.col-->
+
+            <!--/.col-->
+			
+                	
+                   <div class="card-header">
+                        <i class="menu-icon fa fa-file"></i>Data Source 
+					</div>
+                    <div class="card-body">
+                  	<div >
+						<label> CSV</label>
+					</div>
+					<div>
+						<select name="selectSm" id="csvdatasources" class="form-control-sm form-control">
+                                <option value="0">select</option>
+                         </select>
+					</div>
+					</div>
+					<div class="col col-md-2">
+						<label > XLS</label>
+					</div>
+					<div class="col col-md-12">
+						<select name="selectSm" id="xlsdatasources" class="form-control-sm form-control">
+                                <option value="0">select</option>                             
+                              </select>
+					</div>
+					<!--  <div class="card" id="jdbcdatasource">
+					<button class="btn btn-outline-secondary" type="submit" id="jdbc_btn">JDBC</button>
+					</div>
+					  <div class="card">
+							<div class="card-header">
+                        		<i class="menu-icon fa fa-file"></i>Import Source 
+							</div>
+							<div class="card-body">
+							<form action="webapi/anonymizer/uploadSource" method="post"  enctype="multipart/form-data">			
+								<input type="file" id="file_upload" name="file" accept=".csv"/>
+								<button class="btn btn-outline-secondary" type="submit" id="source">Upload File</button>
+							</form>
+							</div>
+						</div>-->
+
+					</div>
+					
+
+           
+            </div>
+            </div>
+            
+            
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-dark bg-flat-color-3">
+                    <div class="card">
+
+
+                      <!--/.col-->
+
+            <!--/.col-->
+				<div  class="card-header" >
+
+                        <i class="menu-icon fa fa-file">Configuration</i>
+                    
+                </div>    
+                 <div id="config"class="card-body">
+                 	                     <div class="col col-md-7">
+						<select name="selectSm" id="xmldatasources" class="form-control-sm form-control">
+                                <option value="0">select</option>                          
+                              </select>
+					</div>  
+					<div class="col col-md-7">
+					
+					<button class="btn btn-outline-secondary" type="submit" id="create_config">Create configuration</button>
+					</div>
+					<!-- <div class="col col-md-27">
+						<div class="card">
+							<div class="card-header">
+                        		<i class="menu-icon fa fa-file"></i>Import Configuration 
+							</div>
+							<div class="card-body">
+							<form action="webapi/anonymizer/uploadConfig" method="post"  enctype="multipart/form-data">
+								<input type="file" name="file" id="config" accept=".xml"/>
+								<button class="btn btn-outline-secondary" type="submit" id="source1">Upload File</button>
+								
+							</form>
+							</div>
+						</div>
+					</div>-->
+
+					
+					
+                 </div>
+            
+				
+               
+            </div>
+            </div>
+            </div>
+           
+            
+            <div  class="card-body" id="anonymize_btn">
+            	<button type="button" class="btn btn-success">Anonymize!</button>
+            	
+            </div>
+            
+            
+            <div >
+            	<button type="button" class="btn btn-secondary" disabled id="download_btn">Download</button>
+            	
+            </div>
+            
+            <!--/.col-->
+
+            <!--/.col-->
+            
+            
+            
+            
+            
+            
+     
+		<div style="margin-top:500px" id="newconfig">
+			<div class="animated fadeIn">
+                <div class="row">
+				 <div class="col-2" id="fname"> <input type="text" class="form-control" id="config_filename" placeholder="File Name"/></div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Configurtion Table</strong>  
+                        </div>
+                        <div class="corner-ribon blue-ribon">
+                        	<div class = "card">
+                             <button class="btn btn-success" type="submit" id="config_submit">Next</button>
+                             </div>
+                        </div>
+                        <div class="card-body" id="new_table">
+                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Attribute Name</th>
+                        <th>AttributeType</th>
+                        <th>DataType</th>
+                        <th>Heirarchy</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table_body">
+                    </tbody>
+                    </table>
+                        </div>
+                    </div>
+                </div>
+
+				</div>
+                </div>
+            </div><!-- .animated -->
+            
+            <div style="margin-top:500px" id="privacyconfig">
+            	<div class="card">
+            		<div class="card-header">
+            			<i class="fa fa-users"></i><strong class="card-title pl-2">Privacy Configuration</strong>
+            		</div>
+            		<div class="corner-ribon blue-ribon">
+                        	<div class = "card">
+                             <button class="btn btn-success" type="submit" id="privacy_submit">Done</button>
+                             </div>
+                        </div>
+            		<div class="card-body">
+            			<div class="row form-group">
+                            <div class="col col-md-2"><label class=" form-control-label">Select Model</label></div>
+                            <div class="col col-md-3">
+                              <div class="form-check">
+                              <form id="radioForm">
+                                <div class="radio">
+                                  <label for="radio1" class="form-check-label ">
+                                    <input type="radio" id="radio1" name="radios" value="k-Anonymity" class="form-check-input">k-Anonymity
+                                  </label>
+                                  
+                                </div>
+                                <div class="radio">
+                                  <label for="radio2" class="form-check-label ">
+                                    <input type="radio" id="radio2" name="radios" value="i-Diversity" class="form-check-input">i-Diversity
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label for="radio3" class="form-check-label ">
+                                    <input type="radio" id="radio3" name="radios" value="t-closeness" class="form-check-input">t-closeness
+                                  </label>
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+                            
+                            <div class="col-1"> <input id="k" type="text" class="form-control" placeholder="k"/></div>
+                            <div class="col-11">
+                            <div class="slidecontainer">
+                            	<label>  Surpression Rate</label>
+  								<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  									<p><span id="demo"></span></p>
+							</div>
+							</div>
+                          </div>
+            		</div>
+            	</div>
+           	</div>
+			</div>
+		<div id="jdbcinfo">
+		<div class="col-xs-6 col-sm-6" id="jdbcinfo">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Database Input</strong> 
+                            </div>
+                            <div class="card-body card-block">
+                                <div class="form-group">
+                                    <label class=" form-control-label">URL</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                        <input id="jdbc_url" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. jdbc:mysql://localhost:3306/database</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class=" form-control-label">Username</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
+                                        <input id="jdbc_username" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                        <input id="jdbc_password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Table</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-table"></i></div>
+                                        <input id="jdbc_table" class="form-control">
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" id="fsubmit">submit</button>
+                            </div>
+                        </div>
+                    </div>
+	</div>  
+		
+        </div> <!-- .content -->
+        
+		
+                                 
+	
+    <!-- /#right-panel -->
+
+    <!-- Right Panel -->
+    
+
+   
+    <script src="assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+         
+    
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            
+        	$("#new_source").click(function(event){
+        		$("#file_upload").click();
+        	});
+        	$("#import_config").click(function(event){
+        		$("#config_source").click();
+        	});
+        	
+        	$("#config_source").hide();
+        	$("#jdbcinfo").hide();
+        	$("#jdbc_btn").click(function(event)
+        			{
+        		$("#jdbcinfo").toggle();
+        			});
+        	
+          	
+          	document.getElementById('newconfig').style.display = "none";
+          	$("#newconfig").hide();
+          	$("#k").hide();
+          	$("#privacyconfig").hide();
+          	$("#config_submit").click(function(event)
+        	{							
+        		$("#newconfig").hide();
+        		$("#privacyconfig").show();
+        		document.getElementById('newconfig').style.display = "none";
+        			});
+          	$("#create_config").on('click',function(event)
+          	{
+          		var datasource = document.getElementById("datasource");
+				var sources = datasource.getElementsByTagName("select");
+				var fileName = sources[0].options[sources[0].selectedIndex].text;
+				var def = "select";
+				if(fileName!=def)
+				{
+          			var response=$.ajax({url:"webapi/anonymizer/getColumns", type:"POST",
+          				data:JSON.stringify({ source_file:fileName}),
+          				dataType:"json",contentType: "application/json; charset=utf-8", async: false
+          				}).responseText;
+          			var obj  = JSON.parse(response);
+          			var attr_info="";
+          			for(i in obj.attributes)
+          			{
+          				var attr_name = "<td class=sorting_1>" + obj.attributes[i] + " </td>";
+          				 attr_info = "<tr role=row class=odd>" + attr_name + "<td><select name=selectSm id=SelectLm class='form-control-sm form-control'><option value=0>Please select</option><option value=1>Insensitive</option><option value=2>Sensitive</option><option value=3>Identifying</option><option value=4>Quasi Identifying</option></select></td><td><select name=selectSm id=SelectLm class='form-control-sm form-control'><option value=0>Please select</option><option value=1>Integer</option><option value=2>String</option><option value=3>Date</option></select></td><td><div class=col col-md-24><input type=checkbox id=checkbox1 name=checkbox1 value=option1 class=form-check-input/><input type=file id=file1 name=hfile value=Upload File accept=.csv></div></td> </tr>";		  			         				
+          				$("#table_body").append(attr_info);
+          			}
+          			var table_info =  "<table id='bootstrap-data-table' class='table table-striped table-bordered'><thead><tr><th>Attribute Name</th><th>AttributeType</th><th>DataType</th><th>Heirarchy</th></tr></thead><tbody id=table_body>" + attr_info + "</tbody> </table>";
+          		$("#newconfig").toggle();
+              	$("#bootstrap-data-table").DataTable();
+          		}
+				else
+					alert("Please select a data source");			
+			});
+
+          	
+          	
+          	$("#radio1").click(function(event)
+                	{
+              		$("#k").show();
+                	});
+          	var slider = document.getElementById("myRange");
+          	var output = document.getElementById("demo");
+          	output.innerHTML = slider.value;
+
+  	        slider.oninput = function() {
+            output.innerHTML = this.value;
+    	      }
+  	        
+  	        
+  	        
+  	     
+        } );
+        
+    </script>
+    <script type="text/javascript">
+    
+    jQuery(document).ready(function($) {
+    
+    		var jdbcData=new Object();
+        	jdbcData.flag=0;
+    $("#fsubmit").click(function(event)
+    {
+    		jdbcData.flag=1;
+    		jdbcData.username = $("#jdbc_username").val();
+    		jdbcData.password = $("#jdbc_password").val();
+    		jdbcData.url = $("#jdbc_url").val();
+    		jdbcData.table = $("#jdbc_table").val();
+    		$("#jdbcinfo").hide();
+    		$("#jdbc_btn").removeClass("btn btn-outline-secondary").addClass("btn btn-danger active");
+    		document.getElementById('jdbcinfo').style.display = "none";
+    });
+	$.get("webapi/anonymizer/getSources",
+			function(data){
+				var obj = JSON.parse(data);
+				for(i in obj.csv)
+				{
+						var txt = $("<option value=1></option").text(obj.csv[i]);
+						$("#csvdatasources").append(txt)
+				}
+				for(i in obj.xls)
+				{
+					var txt = $("<option value=1></option").text(obj.xls[i]);
+						$("#xlsdatasources").append(txt)
+				}
+				
+	});
+	$.get("webapi/anonymizer/getConfigurations",
+			function(data){
+				var obj = JSON.parse(data);
+				for(i in obj.xml)
+				{
+						var txt = $("<option value=1></option").text(obj.xml[i]);
+						$("#xmldatasources").append(txt)
+				}
+								
+	});
+	$("#anonymize_btn").click(function(event){
+		if(jdbcData.flag==0)
+		{
+			var datasource = document.getElementById("datasource");
+			var sources = datasource.getElementsByTagName("select");
+			var csvFileName = sources[0].options[sources[0].selectedIndex].text;
+			var def = "select";
+			if(csvFileName!=def)
+			{
+				var configurations = document.getElementById("config");
+				var configs = configurations.getElementsByTagName("select");
+				var configFileName = configs[0].options[configs[0].selectedIndex].text;
+				if(configFileName!=def)
+				{
+					var response = $.ajax({url:"webapi/anonymizer/anonymize", type:"POST",
+						data:JSON.stringify({ datasource:csvFileName, configuration:configFileName, sourceType:"csv"}),
+						dataType:"json",contentType: "application/json; charset=utf-8", async: false
+						}).responseText;
+						alert(response);
+					var success = "success";
+					if(response!=success)
+						location.reload();
+					else
+					{
+						alert("The data has been anonymized and the source file has been deleted from the server.To download the anonymized data click 'Download' ");
+						$("#download_btn").removeClass("btn btn-secondary").addClass("btn btn-primary active").removeAttr("disabled");
+					}
+				}
+				else
+					alert("Please select a Configuration");
+			
+			}
+			else
+				alert("Please select a Data Source");
+		}
+		else
+		{
+			var def = "select";
+			var configurations = document.getElementById("config");
+			var configs = configurations.getElementsByTagName("select");
+			var configFileName = configs[0].options[configs[0].selectedIndex].text;
+			if(configFileName!=def)
+			{
+				var response = $.ajax({url:"webapi/anonymizer/anonymize", type:"POST",
+								data:JSON.stringify({sourceType:"jdbc",configuration:configFileName,jdbc_info:jdbcData}),
+								dataType:"json",contentType: "application/json; charset=utf-8", async: false
+								}).responseText;
+				alert(response);
+				var success = "success";
+				if(response!=success)
+					location.reload();
+				else
+				{
+					alert("The data has been anonymized and the source file has been deleted from the server.To download the anonymized data click 'Download' ");
+					$("#download_btn").removeClass("btn btn-secondary").addClass("btn btn-primary active").removeAttr("disabled");
+				}
+			}
+			else
+				alert("Please select a Configuration");
+				
+		}
+			
+		
+			
+		
+	});
+	$("#download_btn").click(function(event){
+		window.open("webapi/anonymizer/download");
+		location.reload();
+	});
+	$("#privacy_submit").click(function(event){
+    	var table = document.getElementById('bootstrap-data-table');
+  		var rows = table.getElementsByTagName('tr');
+  		var i, j, cells, name,attrType,dataType,mheirarchy;
+		var attributes_data=[];
+			for (i = 1, j = rows.length; i < j; ++i) {
+  			cells = rows[i].getElementsByTagName('td');
+  			if (!cells.length) {
+      			continue;
+  			}
+  		var attr = new Object();
+  		attr.attribute_name = cells[0].innerHTML;
+  		var box1 = cells[1].getElementsByTagName('select');
+  		attr.attributeType = box1[0].options[box1[0].selectedIndex].text;
+  		var box2 = cells[2].getElementsByTagName('select');
+  		attr.DataType = box2[0].options[box2[0].selectedIndex].text;
+  		var box3 = cells[3].getElementsByTagName('input'); 		
+  		attr.Heirarchy = box3[0].checked; 
+  		attributes_data.push(attr);
+			}
+		var Filename = $("#config_filename").val();
+			var privacy = new Object();
+			privacy.model = $("[id*=radioForm] input:checked").val();
+			privacy.k = document.getElementById('k').value;
+			privacy.rate = $("#myRange").val();
+			
+			var response=$.ajax({url:"webapi/anonymizer/createConfig", type:"POST",
+			data:JSON.stringify({ file_name:Filename, attributes:attributes_data, privacy_data:privacy}),
+			dataType:"json",contentType: "application/json; charset=utf-8", async: false
+			}).responseText;
+			alert(response);
+			$('input[name="hfile"]').each(function(index,value){
+				var file = value.files[0];
+				if(file)
+				{
+					var formData = new FormData();
+					formData.append('file', file);
+					$.ajax({
+						url : "webapi/anonymizer/uploadHeirarchy",
+						type: "POST",
+						data : formData,
+						contentType: false,
+						cache :false,
+						async: false,
+						processData:false,
+						success:  function(data, textStatus, jqXHR) {
+                            var message = jqXHR.responseText;
+                            //alert(message);
+                      },
+                      error : function(jqXHR, textStatus, errorThrown) {
+                            alert("Error occured, please reload the page and try again");
+					  }
+                      
+					});
+				}
+			});
+			
+      });
+	$("#privacy_submit").click(function(event)
+          	{
+        	  $("#newconfig").hide();
+              $("#k").hide();
+              $("#privacyconfig").hide();
+              location.reload();
+
+          	});
+
+
+	
+	
+	
+    });
+	
+         </script>
+</body>
+</html>

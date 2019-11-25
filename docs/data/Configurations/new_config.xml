@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config
+	xmlns="http://www.iiitb.ac.in/config"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.iiitb.ac.in/config config.xsd">
+<AttributeData><Attribute attribute_name = "age ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>Integer</DataType>
+	</Attribute><Attribute attribute_name = "education ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "marital-status ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "native-country ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "occupation ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "race ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "salary-class ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "sex ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute><Attribute attribute_name = "workclass ">
+		<AttributeType>Quasi Identifying</AttributeType>
+		<DataType>String</DataType>
+	</Attribute></AttributeData><PrivacyModel>
+	<Model k="3">k-Anonymity</Model>
+	<SurpressionRate>38</SurpressionRate>
+</PrivacyModel>
+</config>

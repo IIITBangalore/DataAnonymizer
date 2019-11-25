@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:sample="http://www.iiitb.ac.in/config"
+	targetNamespace="http://www.iiitb.ac.in/config"	elementFormDefault="qualified">
+
+
+<!-- To Import the required attributes from the dataset -->
+<element name="config">
+<complexType>
+<sequence>
+<element name="AttibuteData">
+	<complexType>
+		<sequence>
+			<element name="Attibute" minOccurs="1" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="AttributeType" type="string"/>
+						<element name="DataType" type="string"/>
+						<element name="Heirarchy" type="string"/>
+					</sequence>
+					 <attribute name = "attribute_name" type = "string"/> 
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+</element>
+
+<!-- Importing the privacy ctiterion that should be used to anonymize -->
+
+<element name="PrivacyModel">
+	<complexType>
+		<sequence>
+			<element name="Model" type="string"/>
+			<element name="SurpressionRate" />
+		</sequence>
+	</complexType>
+</element>
+</sequence>
+</complexType>
+</element>
+</schema>
