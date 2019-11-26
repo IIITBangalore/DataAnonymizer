@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  webapi:
+     depends_on:
+     image: pranith563/data_anonymizer:webimg 
+     hostname: webapi
+     ports:
+       - "8080:8080"
+     restart: always
